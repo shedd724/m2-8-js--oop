@@ -1,6 +1,40 @@
 // From 2.1. and 2.2
 // Copy over your solutions classes you created in 2.1 and 2.2.
 // Paste them right here:
+class Book {
+  constructor(title, genre, author, isRead) {
+    this.title = title;
+    this.genre = genre;
+    this.author = author;
+    this.isRead = isRead ? isRead : false;
+  }
+}
+
+class BookList extends Book {
+  
+  constructor() {
+    super();
+    this.books = [];
+    this.lastRead = null;
+    this.currentlyReading = null;
+  }
+  add = (book) => {
+    this.books.push(book);
+    this.currentlyReading = book;
+  };
+
+ 
+  getNumUnread = () => {
+    let unread = 0;
+
+    this.books.forEach((book) => {
+      if (!book.isRead) {
+        unread++;
+      }
+    });
+    return unread;
+  };
+}
 
 // Exercise 2.3
 //
